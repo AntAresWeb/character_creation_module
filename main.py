@@ -4,30 +4,40 @@ from random import randint
 def attack(char_name, char_class):
     if char_class == 'warrior':
         hit_point = 5 + randint(3, 5)
-        return (f'{char_name} нанёс урон противнику равный {hit_point}')
+        return f'{char_name} нанёс урон противнику равный {hit_point}'
     if char_class == 'mage':
         hit_point = 5 + randint(5, 10)
-        return (f'{char_name} нанёс урон противнику равный {hit_point}')
+        return f'{char_name} нанёс урон противнику равный {hit_point}'
     if char_class == 'healer':
         hit_point = 5 + randint(-3, -1)
-        return (f'{char_name} нанёс урон противнику равный {hit_point}')
+        return f'{char_name} нанёс урон противнику равный {hit_point}'
+
+
 def defence(char_name, char_class):
     if char_class == 'warrior':
-        return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
+        def_point = 10 + randint(5, 10)
+        return f'{char_name} блокировал {def_point} урона'
     if char_class == 'mage':
-        return (f'{char_name} блокировал {10 + randint(-2, 2)} урона')
+        def_point = 10 + randint(-2, 2)
+        return f'{char_name} блокировал {def_point} урона'
     if char_class == 'healer':
-        return (f'{char_name} блокировал {10 + randint(2, 5)} урона')
+        def_point = 10 + randint(2, 5)
+        return f'{char_name} блокировал {def_point} урона'
+
+
 def special(char_name, char_class):
-    if char_class == 'warrior': 
-        return (f'{char_name} применил специальное умение «Выносливость {80 + 25}»')
+    if char_class == 'warrior':
+        spec_point = 80 + 25
+        return (f('{char_name} применил специальное умение «Выносливость '
+                '{spec_point}»'))
     if char_class == 'mage':
-        return (f'{char_name} применил специальное умение «Атака {5 + 40}»')
+        spec_point = 5 + 40
+        return (f'{char_name} применил специальное умение «Атака '
+                f'{spec_point}»')
     if char_class == 'healer':
-        return (f'{char_name} применил специальное умение «Защита {10 + 30}»')
-
-
-
+        spec_point = 10 + 30
+        return (f'{char_name} применил специальное умение «Защита '
+                '{spec_point}»')
 
 def start_training(char_name, char_class):
     if char_class == 'warrior':
@@ -64,7 +74,6 @@ def choice_char_class():
         approve_choice = input('Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа ').lower()
     return char_class
 
-
 def main():
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
@@ -76,5 +85,4 @@ def main():
     char_class = choice_char_class()
     print(start_training(char_name, char_class))
     
-
 main()
